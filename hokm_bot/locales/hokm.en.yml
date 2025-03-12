@@ -1,0 +1,67 @@
+en:
+  picked_hokm: "The Hakem chose %{hokm} as the Hokm suit."
+  win: "%{team_emoji} %{winner} and %{ally} won! (%{wins}/7)"
+  finished: |
+    The game has ended.
+    Winners: %{winner_emoji} %{winner1} and %{winner2} with %{winner_score} points
+    Losers: %{loser_emoji} %{loser1} and %{loser2} with %{loser_score} points
+  update: |
+    🔃 Round %{round}/%{total_rounds}
+    
+    Hakem: %{hakem}
+    Hokm: %{hokm}
+    
+    🔵 %{blue1}, %{blue2} | %{blue_wins}/7, %{blue_scores}
+    🔴 %{red1}, %{red2} | %{red_wins}/7, %{red_scores}
+    
+    Cards played this round:
+    %{played_cards}
+    
+    It's %{turn}'s turn.
+  game_start: 🃏 %{hakem} was randomly chosen as the Hakem. Hakem, choose the Hokm suit!
+  manual_end: |
+    🔚 The game was manually ended!
+
+    🎴 We were in the %{round} round out of a total of %{total_rounds} rounds.
+    
+    🔵 Blue Team: %{blue1} and %{blue2}
+    Score: %{blue_score}
+    
+    🔴 Red Team: %{red1} and %{red2}
+    Score: %{red_score}
+    
+    🃏 A total of %{played_cards} cards were played, and %{remaining_cards} cards remained in the last game.
+    🆕 To start a new game, send the /newgame command.
+  all_played_cards: |
+    Played Cards:
+    %{played_cards}
+    
+    Remaining Cards:
+    %{remaining_cards}
+
+  messages:
+    play: Play a card
+    already_in_game: You are already playing in the group %{chat_name}. Join this game after leaving the other one.
+    blue: Blue
+    red: Red
+    choose_rounds: Choose the number of rounds for the game
+    game_already_started: The game has already started
+    new_game: A new game has been created in this group. Click the button for your desired team to join.
+    joined: You have joined this game
+    left: You have left the game
+    game_started: The game has started
+    no_game: Currently no game is in the process.
+    pick_suit: Choose the Hokm suit
+    hello: Hello
+    help: Help
+    blue_leave: Someone from the blue team🔵 wants to leave the game. If you'd like to take their place, click on this button.
+    red_leave: Someone from the red team🔴 wants to leave the game. If you'd like to take their place, click on this button.
+    new_blue: User %{new_player} has joined the blue team🔵!
+    new_red: User %{new_player} has joined the red team🔴!
+    played_cards_button: See the Played Cards
+
+  suits:
+    hearts: Hearts
+    diamonds: Diamonds
+    clubs: Clubs
+    spades: Spades

@@ -1,0 +1,4 @@
+python-dotenv~=1.0.0
+python-telegram-bot
+python-i18n[YAML]
+SQLAlchemy~=2.0.38
