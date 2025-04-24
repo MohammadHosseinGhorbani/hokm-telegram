@@ -1,0 +1,17 @@
+version: '3.12'
+services:
+  hokm-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hokm-bot
+    env_file:
+      - ./hokm_bot/.env
+    volumes:
+      - ./hokm_bot/database/groups.db:/code/hokm_bot/database/groups.db
+    restart: unless-stopped
+    command: [ "python", "main.py" ]
+
+volumes:
+  groups_db_data:
+    driver: local

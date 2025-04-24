@@ -19,7 +19,7 @@ async def card_choosing(update, context):
                 str(uuid4()),
                 i18n.t('hokm.messages.not_playing'),
                 input_message_content=InputTextMessageContent("/newgame"),
-                description=i18n.t('hokm.messages.click_to_new_game.start')
+                description=i18n.t('hokm.messages.click_to_new_game')
             )
         ], 0)
         return
@@ -76,7 +76,7 @@ async def card_choosing(update, context):
                     id=str(uuid4()),
                     sticker_file_id=card.get_file_id() if player.is_playable(card) else card.get_file_id(True),
                     input_message_content=
-                    InputTextMessageContent("This is not your turn.") if game.turn != player
+                    InputTextMessageContent(i18n.t("hokm.messages.not_your_turn")) if game.turn != player
                     else InputTextMessageContent(i18n.t('hokm.messages.card_not_ready')) if not player.is_playable(card)
                     else None
                 )

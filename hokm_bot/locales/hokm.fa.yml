@@ -65,6 +65,7 @@ fa:
     not_card: برای بازی کردن روی یک کارت کلیک کن
     card_not_ready: هنوز نمیتونی از این کارت استفاده کنی.
     played_cards_button: دیدن کارت های بازی شده
+    not_your_turn: الان نوبت تو نیست!
 
   suits:
     hearts: دل

@@ -59,6 +59,7 @@ en:
     new_blue: User %{new_player} has joined the blue team🔵!
     new_red: User %{new_player} has joined the red team🔴!
     played_cards_button: See the Played Cards
+    not_your_turn: This is not your turn!
 
   suits:
     hearts: Hearts
