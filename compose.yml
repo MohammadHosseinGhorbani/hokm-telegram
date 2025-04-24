@@ -11,6 +11,8 @@ services:
       - ./hokm_bot/database/groups.db:/code/hokm_bot/database/groups.db
     restart: unless-stopped
     command: [ "python", "main.py" ]
+    mem_limit: 400m
+    cpus: 0.5
 
 volumes:
   groups_db_data:
