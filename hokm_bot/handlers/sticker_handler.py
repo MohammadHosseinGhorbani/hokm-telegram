@@ -3,7 +3,7 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton, helpers
 from html import escape
 import i18n
 
-from ..utils import BOT_ID, stickers_unique
+from ..utils import BOT_ID, stickers
 from ..database.funcs import get_setting, database_config
 
 
@@ -22,12 +22,15 @@ async def sticker_handler(update, context):
 
     match game.state:
         case GameStates.CHOOSING_HOKM:
-            game.hokm = dict(zip(stickers_unique.values(), stickers_unique.keys())).get(sticker.file_unique_id)
+            game.hokm = dict(zip(Card.suits_emojis.values(), Card.suits_emojis.keys())).get(message.text)
+            await chat.send_sticker(stickers.get(game.hokm))
             game.deal_to_all()
             # await chat.send_sticker(stickers.get('honor_' + f'{game.hokm} {Card.suits_emojis.get(game.hokm)}'))
             await chat.send_message(i18n.t('hokm.picked_hokm', hokm=i18n.t('hokm.suits.' + game.hokm) + Card.suits_emojis.get(game.hokm)))
         case GameStates.PLAYING:
-            player.play(Card.from_file_unique_id(sticker.file_unique_id))
+            suit = dict(zip(Card.suits_emojis.values(), Card.suits_emojis.keys())).get(message.text.split([1]))
+            player.play(Card(suit, int(message.text.split([0]))))
+            await chat.send_sticker(stickers.get(f'{int(message.text.split([0]))}{suit.upper()}'))
             if len(game.round_cards) == 4:
                 winner = game.process_cards()
                 await chat.send_message(i18n.t(

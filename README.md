@@ -24,7 +24,6 @@ A fully-featured Telegram bot for playing the Persian card game **Hokm** in grou
 │   └── ...
 ├── hokm_game/              # Core game logic (cards, players, game state)
 ├── stickers.json           # Card sticker mappings
-├── stickers_unique.json    # Unique sticker IDs for game logic
 └── ...
 ```
 
@@ -69,6 +68,9 @@ python main.py
 ## Customization
 - **Languages:** Add or edit YAML files in `hokm_bot/locales/`.
 - **Stickers:** Update `stickers.json` and `stickers_unique.json` for custom card stickers.
+
+## hokm_game Package
+The `hokm_game` package contains the core logic for the Hokm card game, including card management, player interactions, and game state management. While it is specifically designed for integration with the Hokm Telegram Bot, its robust design allows it to be used in other applications that require Hokm game functionality.
 
 ## Data Persistence
 - Game and group settings are stored in `hokm_bot/database/groups.db` (SQLite).

@@ -43,6 +43,7 @@ async def card_choosing(update, context):
                         InlineQueryResultCachedSticker(
                             str(uuid4()),
                             stickers.get(suit),
+                            input_message_content=InputTextMessageContent(Card.suits_emojis.get(suit))
                         )
                         for suit in ('hearts', 'diamonds', 'clubs', 'spades')
                     ] +
@@ -78,7 +79,7 @@ async def card_choosing(update, context):
                     input_message_content=
                     InputTextMessageContent(i18n.t("hokm.messages.not_your_turn")) if game.turn != player
                     else InputTextMessageContent(i18n.t('hokm.messages.card_not_ready')) if not player.is_playable(card)
-                    else None
+                    else InputTextMessageContent(f"{card.rank} {card.suits_emojis.get(card.suit)}")
                 )
                 for card in deck
             ])

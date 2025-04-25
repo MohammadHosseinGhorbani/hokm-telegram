@@ -57,7 +57,6 @@ async def newgame_command(update, context):
 
     if message.chat.id in {game.chat_id for game in Game.instances}:
         game = Game.get_instance(message.chat.id)
-        markup = new_game_markup(*organized_players(game.players), game_id=game.game_id if len(game.players) == 4 else None)
         if game.state and game.state != GameStates.FINISHED:
             await message.reply_text(i18n.t('hokm.messages.game_already_started'))
             return

@@ -52,8 +52,17 @@ en:
     game_started: The game has started
     no_game: Currently no game is in the process.
     pick_suit: Choose the Hokm suit
-    hello: Hello
-    help: Help
+    hello: Hi there! 👋 Add me to a group and send /newgame to start playing Hokm with your friends. Need details? Send /help for a list of commands.
+    help: |
+      This bot brings a fun and easy way to play Hokm with 4 players in your group. Here's what you can do:
+
+      - /newgame – Start a new Hokm game in the group (only if one isn’t already active and the bot is added).
+      - /lang – Change the bot’s language for the current chat.
+      - /announce – Toggle whether played and remaining cards are announced during the game.
+      - /leave – Request to leave the game; another player can volunteer to take your place.
+      - /end – Forcefully end the ongoing game.
+
+      Enjoy your game and good luck! ♥️♠️♦️♣️
     blue_leave: Someone from the blue team🔵 wants to leave the game. If you'd like to take their place, click on this button.
     red_leave: Someone from the red team🔴 wants to leave the game. If you'd like to take their place, click on this button.
     new_blue: User %{new_player} has joined the blue team🔵!
