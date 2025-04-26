@@ -27,7 +27,7 @@ async def sticker_handler(update, context):
             # await chat.send_sticker(stickers.get('honor_' + f'{game.hokm} {Card.suits_emojis.get(game.hokm)}'))
             await chat.send_message(i18n.t('hokm.picked_hokm', hokm=i18n.t('hokm.suits.' + game.hokm) + Card.suits_emojis.get(game.hokm)))
         case GameStates.PLAYING:
-            suit = dict(zip(Card.suits_emojis.values(), Card.suits_emojis.keys())).get(message.text.split([1]))
+            suit = dict(zip(Card.suits_emojis.values(), Card.suits_emojis.keys())).get(message.text.split()[1])
             player.play(Card(suit, int(message.text.split()[0])))
             await chat.send_sticker(stickers.get(f'{int(message.text.split()[0])}{suit.upper()}'))
             if len(game.round_cards) == 4:
