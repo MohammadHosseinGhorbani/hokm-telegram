@@ -29,7 +29,7 @@ async def sticker_handler(update, context):
         case GameStates.PLAYING:
             suit = dict(zip(Card.suits_emojis.values(), Card.suits_emojis.keys())).get(message.text.split()[1])
             player.play(Card(suit, int(message.text.split()[0])))
-            await chat.send_sticker(stickers.get(f'{int(message.text.split()[0])}{suit.upper()}'))
+            await chat.send_sticker(stickers.get(f'{int(message.text.split()[0])}{suit[0].upper()}'))
             if len(game.round_cards) == 4:
                 winner = game.process_cards()
                 await chat.send_message(i18n.t(
