@@ -60,10 +60,11 @@ async def newgame_command(update, context):
         if game.state and game.state != GameStates.FINISHED:
             await message.reply_text(i18n.t('hokm.messages.game_already_started'))
             return
-    else:
-        game = Game(message.chat.id)
-        markup = new_game_markup()
+        else:
+            game.finish()
 
+    game = Game(message.chat.id)
+    markup = new_game_markup()
     await message.chat.send_message(i18n.t('hokm.messages.new_game'), reply_markup=markup)
 
 
@@ -231,8 +232,9 @@ async def end_command(update, context):
         await chat.send_message(i18n.t('hokm.messages.no_game'))
         return
 
-    if game.state == GameStates.FINISHED:
+    if not game.state or game.state == GameStates.FINISHED:
         await chat.send_message(i18n.t('hokm.messages.no_game'))
+        return
 
     blue_team = [player for player in game.players if player.position.startswith('blue')]
     red_team = [player for player in game.players if player not in blue_team]
