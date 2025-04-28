@@ -1,4 +1,4 @@
-FROM pypy3:3
+FROM pypy:3
 
 WORKDIR /code
 
