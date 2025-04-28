@@ -39,22 +39,27 @@ async def sticker_handler(update, context):
                     ally=str(winner.ally),
                     wins=winner.wins
                 ))
-            if game.state == GameStates.FINISHED:
-                _players = game.players.copy()
-                _players.remove(player)
-                _players.remove(player.ally)
-                await chat.send_message(i18n.t(
-                    'hokm.finished',
-                    winner_emoji='🔵' if player.position.startswith('blue') else '🔴',
-                    winner1=player,
-                    winner2=player.ally,
-                    winner_score=player.scores,
-                    loser_emoji='🔵' if _players[0].position.startswith('blue') else '🔴',
-                    loser1=_players[0],
-                    loser2=_players[1],
-                    loser_score=_players[0].scores,
-                ))
-                del _players
+        case GameStates.FINISHED:
+            _players = game.players.copy()
+            winner_score = [_player.scores for _player in _players]
+            for _player in _players:
+                if _player.scores == winner_score:
+                    winner = _player
+                    _players.remove(winner)
+                    _players.remove(winner.ally)
+                    break
+            await chat.send_message(i18n.t(
+                'hokm.finished',
+                winner_emoji='🔵' if player.position.startswith('blue') else '🔴',
+                winner1=winner,
+                winner2=winner.ally,
+                winner_score=winner.scores,
+                loser_emoji='🔵' if _players[0].position.startswith('blue') else '🔴',
+                loser1=_players[0],
+                loser2=_players[1],
+                loser_score=_players[0].scores,
+            ))
+            del _players
         case _:
             pass
 

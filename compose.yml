@@ -10,7 +10,7 @@ services:
     volumes:
       - ./hokm_bot/database/:/code/hokm_bot/database/
     restart: unless-stopped
-    command: [ "python", "main.py" ]
+    command: [ "pypy3", "main.py" ]
 
 volumes:
   groups_db_data:
